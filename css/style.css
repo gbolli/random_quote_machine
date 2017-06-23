@@ -1,0 +1,30 @@
+body {
+  background-color: orange;
+}
+
+h1 {
+  color: #654321;
+}
+
+.well {
+  margin-top: 100px;
+}
+
+.quoteFormat {
+  font-size: 24px;
+  margin: 50px;
+  color: #654321;
+}
+
+.quoteFormat footer {
+  font-size: 14px;
+}
+
+button {
+  color: white;
+  background-color: #654321;
+}
+
+.quoteButton {
+  margin-right: 10px;
+}
