@@ -5,32 +5,43 @@ $(document).ready(function() {
   });
   
   $("#quoteGen").click( function() {
-    
-        var quote = "";
-        var source = "";
-    
+        
         $.ajax({
-          url: 'https://crossorigin.me/http://api.forismatic.com/api/1.0',
-          //json: "callback",
-          data: {},
           type: 'GET',
           dataType: 'json',
+          //url: 'http://api.icndb.com/jokes/random',  // chuck norris
+            url: 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=?',  // forismatic api
+          //url: 'https://random-quote-generator.herokuapp.com/api/quotes/random',
+          //json: "callback",
+          //data: {},
+          
           success: function (data) {
             
-            console.log(data);
-          
-            quote += data.quoteText;
-            source += data.quoteAuthor;
+            var quote = "";
+            var source = "";
             
-          },
-          xhrFields: {
-            withCredentials: false
+            // console.log(data);   //  for testing
+            // console.log(data.value.joke); // chuck norris
+          
+            quote += data.quoteText;   // forismatic api
+            source += data.quoteAuthor;  // forismatic api
+            
+            // quote += data.quote;  // heroku app
+            // source += data.author; // heroku app
+              
+            // quote = data.value.joke;  // chuck norris
+            
+            $("#randomQuote").html(quote);
+            $("#randomQuoteSource").html(source);  
+              
+          //},
+          //xhrFields: {
+          //  withCredentials: false
           }
         });  
         
           
-        $("#randomQuote").html(quote);
-        $("#randomQuoteSource").html(source);
+        
 
       
       });
