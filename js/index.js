@@ -1,24 +1,29 @@
 $(document).ready(function() {
   
+  // create variables
   var quote = "";
   var author = "";
   
+  // populate on load
   generateQuote();
   
+  // remove focus from button after clicking
   $(".btn").mouseup(function(){
     $(this).blur();
   })
   
+  // tweet the quote
   $(".tweet").on("click", function() {
-    
-    // still needs code
-    
+    window.open('https://twitter.com/intent/tweet?text=' +
+					encodeURIComponent(quote + ' - ' + author));
   });
   
+  // generate a new quote upon clicking button
   $("#quoteGen").on("click", function() {
     generateQuote();
     });
 
+  // generate new quote
   function generateQuote() { 
         $.ajax({
           type: 'GET',
@@ -43,13 +48,11 @@ $(document).ready(function() {
             // quote = data.value.joke;  // chuck norris
             // author = "";   // chuck norris
             
+            // apply quote and author to html
             $("#randomQuote").html(quote);
             $("#randomQuoteSource").html(author);  
               
-          //},
-          //xhrFields: {
-          //  withCredentials: false
-          }
+            }
         });  
   };
 });
