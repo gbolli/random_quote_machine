@@ -44,7 +44,7 @@ $(document).ready(function() {
             // author = "";   // chuck norris
             
             $("#randomQuote").html(quote);
-            $("#randomQuoteSource").html(source);  
+            $("#randomQuoteSource").html(author);  
               
           //},
           //xhrFields: {
